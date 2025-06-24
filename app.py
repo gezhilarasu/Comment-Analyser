@@ -13,6 +13,14 @@ from tensorflow.keras.models import load_model
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+@st.cache_resource
+def download_nltk_data():
+    nltk.download('punkt')
+    nltk.download('wordnet')
+    nltk.download('punkt_tab')
+download_nltk_data()
+
+
 # Load env
 load_dotenv()
 API_KEY = os.getenv("YOUTUBE_API_KEY")
